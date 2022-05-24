@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PosttagSeeder extends Seeder
+class TagSeeder extends Seeder
 {
     /**
      * Run the database seeds.
