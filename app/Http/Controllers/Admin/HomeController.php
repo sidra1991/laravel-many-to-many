@@ -9,24 +9,16 @@ use App\UserInfo;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(UserInfo $userInfo)
+    public function index()
     {
-        return view('admin.admin','UserInfo');
+
+        return view('guest.welcome');
     }
 
     /**
@@ -94,4 +86,17 @@ class HomeController extends Controller
     {
         //
     }
+
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+
+        return view('admin.list');
+    }
+
+
 }

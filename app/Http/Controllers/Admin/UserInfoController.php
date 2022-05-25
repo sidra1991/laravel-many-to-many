@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use App\UserInfo;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,7 @@ class UserInfoController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.private');
     }
 
     /**
