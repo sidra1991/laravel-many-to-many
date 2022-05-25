@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Post;
+use App\User;
+use App\UserInfo;
 
 class HomeController extends Controller
 {
@@ -11,18 +14,19 @@ class HomeController extends Controller
      *
      * @return void
      */
-    //public function __construct()
-    //{
-        //$this->middleware('auth');
-    //}
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(UserInfo $userInfo)
     {
-        return view('prova');
+        return view('admin.admin','UserInfo');
     }
 
     /**

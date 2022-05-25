@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::resource('/post', 'Guest\PostController');
 
 Route::get('/home', 'Guest\HomePageController@index')->name('home');
-//Route::get('/list', 'Guest\PostController@index')->name('list');
+Route::get('/list', 'Guest\PostController@index')->name('list');
 
 Auth::routes();
 
@@ -29,6 +29,11 @@ Route::middleware('auth')
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
-        //Route::get('/home', 'HomeController@index')->name('home');
+        Route::get('/', 'HomeController@index')->name('admin');
     });
+
+
+//Route::get('/droga', 'HomeController@index')->name('droga');
+
+
 
