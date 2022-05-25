@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Guest;
 
 use App\Post;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Controller;
 class PostController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $list =  Post::paginate(10);
+        return view('guest.list', compact('list'));
     }
 
     /**
@@ -46,7 +47,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('guest.show',compact('post'));
     }
 
     /**
