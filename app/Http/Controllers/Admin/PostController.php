@@ -1,25 +1,24 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
+use App\Post;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\UserInfo;
-use Illuminate\Http\Request;
-
-class UserInfoController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(UserInfo $UserInfo)
+    public function index()
     {
-        $user = Auth::user();
-        $information = $UserInfo->all()->where('user_id',$user->id);
-        //dd(Auth::user());
-        //dd($UserInfo->all()->where('id',1));
-        return view('admin.private', compact('information'));
+        $user = Auth::user()->id;
+        $myPost = Post::all()->where('user_id',$user);
+        //dd(Post::all()->where('user_id',$user));
+        return view('admin.list',compact('myPost'));
     }
 
     /**
@@ -46,47 +45,44 @@ class UserInfoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\UserInfo  $userInfo
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(UserInfo $userInfo)
+    public function show()
     {
-        //
+        return view('guest.show');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\UserInfo  $userInfo
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserInfo $userInfo)
+    public function edit(Post $post)
     {
-        return view('admin.editing.editinfo',compact('userInfo'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\UserInfo  $userInfo
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserInfo $userInfo)
+    public function update(Request $request, Post $post)
     {
-        $upDateUserInfo = $request->all();
-        $userInfo->update($upDateUserInfo);
-        return redirect()->route('admin.home');
+        //
     }
-
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\UserInfo  $userInfo
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserInfo $userInfo)
+    public function destroy(Post $post)
     {
         //
     }

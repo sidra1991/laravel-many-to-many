@@ -24,8 +24,8 @@ Route::get('/login', function () {
 //Route::resource('/post', 'Guest\PostController');
 
 //Route::get('/home', 'Guest\HomePageController@index')->name('home');
-Route::get('/show', 'Guest\PostController@show')->name('show');
-Route::get('/list', 'Guest\PostController@index')->name('list');
+Route::get('/show', 'Guest\PostGuestController@show')->name('show');
+Route::get('/list', 'Guest\PostGuestController@index')->name('list');
 
 
 Auth::routes();
@@ -37,7 +37,8 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
         Route::get('/private', 'UserInfoController@index')->name('admin.home');
-        Route::get('/p%list', 'Homecontroller@list')->name('private.list');
+        Route::resource('/info', 'UserInfoController');
+        Route::resource('/post', 'PostController');
     });
 
 

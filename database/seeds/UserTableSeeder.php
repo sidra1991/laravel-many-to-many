@@ -15,8 +15,8 @@ class UserTableSeeder extends Seeder
         for ($i=0; $i < 100; $i++) {
             $newUser = new User();
             $newUser->name = 'user di prova' . $i;
-            $newUser->email = 'email@prova' . $i . '.it';
-            $newUser->password =Hash::make('prova' . $i);
+            $newUser->email = 'email' . $i . '@prova.it';
+            $newUser->password =Hash::make('prova1234');
 
             $newUser->save();
         };

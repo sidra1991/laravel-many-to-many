@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Guest;
 use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-class PostController extends Controller
+class PostGuestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $list =  Post::paginate(10);
+        $list =  Post::all()->paginate(10);
         return view('guest.list', compact('list'));
     }
 
@@ -45,8 +45,13 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
+        dd($id);
+        if ($post->id ) {
+            #
+        }
+
         return view('guest.show');
     }
 
